@@ -1,0 +1,31 @@
+<p>The ultimate shopping supah crazy listuh</p>
+
+
+
+<nb-card>
+      <nb-card-header>
+            <input nbInput [(ngModel)] = "monItem">
+            <button nbButton status='success' [disabled]="!monItem" (click)="AddToList()">+</button>
+      </nb-card-header>
+      <nb-card-body>
+            <ul>
+                  <li *ngFor="let item of shoppingList;let i = index;">
+                        <div (click)="EventClick(i)" 
+                              [ngClass]="{'maClass': item.clicked}">                          
+                              <!-- [ngStyle]="'text-decoration' : (clicked ? line-through : none");  -->
+                              
+
+                              {{item.quantity}}
+                              {{item.item | titlecase}}
+                              &nbsp;                             
+                        </div>          
+                        <button  nbButton status='info'(click)="Decrease(i)">-</button>  
+                        <button  nbButton status='success'(click)="Increase(i)">+</button>
+                        <button  nbButton status='danger'(click)="Remove(i)">x</button>             
+                              
+                  </li>
+                  
+            </ul>
+      </nb-card-body>
+</nb-card>
+

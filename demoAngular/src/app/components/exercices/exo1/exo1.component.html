@@ -1,0 +1,23 @@
+<p>Ceci est un chronomètre</p>
+
+<nb-card>
+      <nb-card-body>
+            <p>Le compte des secondes : {{monChrono | toTime}}</p>
+
+            <button nbButton status='success'
+                             [disabled]="increment" 
+                             (click)="start()">
+                             Start
+            </button>
+            <button nbButton status='danger' 
+                             [disabled]="!increment" 
+                             (click)="stop()">
+                             Stop
+             </button>
+            <button nbButton status='info' 
+                             (click)="reset()"
+                             [disabled]="monChrono == 0">
+                             Reset
+            </button>
+      </nb-card-body>
+</nb-card>
